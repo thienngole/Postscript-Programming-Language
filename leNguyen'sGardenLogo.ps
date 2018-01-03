@@ -1,0 +1,231 @@
+%This program draws a company logo
+
+%make the black background for the whole page.
+/pageBackGround { 
+	newpath
+	0 0 moveto
+	0 792 rlineto
+	612 0 rlineto
+	0 -792 rlineto
+	closepath
+	0.5 setlinewidth
+	0 0 0 setrgbcolor fill
+	stroke 
+} def
+pageBackGround
+
+%-------------------------------------------------------------------------------
+%Sign the author information
+/displayInfor { 
+	350 180 moveto
+	/Times-BoldItalic findfont 20 scalefont setfont
+	(Logo designed by:) 
+	1 1 1 setrgbcolor show
+	stroke
+	350 160 moveto
+	/Times-BoldItalic findfont 20 scalefont setfont
+	(ThienNgo Nguyen Le) 
+	1 1 1 setrgbcolor show
+	stroke		
+	350 140 moveto
+	/Helvetica-Oblique findfont 10 scalefont setfont
+	(Cell: 720 278 8396) 
+	1 1 1 setrgbcolor show
+	stroke
+	350 120 moveto
+	/Helvetica-Oblique findfont 10 scalefont setfont
+	(Email: thienngonguyenle@gmail.com) 
+	1 1 1 setrgbcolor show 
+	stroke
+} def
+%0.8 0.8 scale
+displayInfor
+
+%-------------------------------------------------------------------------------
+%Draw outline and border
+306 488 moveto
+3.0 setlinewidth
+306 448 245 0 360 arc closepath
+0.7 0.3 0.0 setrgbcolor
+stroke
+
+1.5 setlinewidth
+306 448 242 0 360 arc closepath
+1 1 1 setrgbcolor
+stroke
+
+0.5 setlinewidth
+306 448 239 0 360 arc closepath
+1 1 0 setrgbcolor fill
+stroke
+
+1.0 setlinewidth
+306 448 171 0 360 arc closepath
+0 0 0 setrgbcolor 
+stroke
+
+%-------------------------------------------------------------------------------
+%Draw the logo sign
+
+%Draw flower's petals
+/inch {
+	72 mul
+} def
+
+/wedge {
+	newpath 
+	0 0 moveto 
+	1 0 translate 
+	15 rotate
+	0 15 sin translate
+	0 0 15 sin -90 90 arc
+	closepath
+} def
+
+gsave
+4.25 inch 5.5 inch translate 
+1.75 inch 1.75 inch scale 
+0.01 setlinewidth 
+%Begin for loop
+0.7 0.3 2.0 { 
+	%12 div setgray 
+	gsave 
+	wedge 
+	gsave 1 0 0 setrgbcolor fill grestore 
+	grestore 
+	37.5 rotate 
+} for %End for loop
+grestore 
+
+%Draw the flower's dorsal
+/ellipsedict 8 dict def
+ellipsedict 
+/mtrx matrix put
+/ellipse
+
+{ 
+ellipsedict begin
+	/endangle exch def
+	/startangle exch def
+	/yrad exch def
+	/xrad exch def
+	/y exch def
+	/x exch def
+	/savematrix mtrx currentmatrix def
+
+	x y translate
+	xrad yrad scale
+	0 0 1 startangle endangle arc
+	savematrix setmatrix
+	end
+} def
+
+%Draw left dorsal
+newpath
+230 385 60 50 180 360 ellipse
+0.0 0.5 0.0 setrgbcolor fill
+stroke
+
+%Draw right dorsal
+newpath
+382 385 60 50 180 360 ellipse
+0.0 0.5 0.0 setrgbcolor fill
+stroke
+
+%Draw middle dorsal
+newpath
+306 385 60 80 180 360 ellipse
+0.0 0.5 0.0 setrgbcolor fill
+stroke
+
+%-------------------------------------------------------------------------------
+%Print the texts
+/clockwiseCircleText { 
+	circtextdict begin
+	/radius exch def
+	/centerangle exch def
+	/ptsize exch def
+	/str exch def
+	/xradius radius ptsize 4 div add def 
+	centerangle str findhalfangle add rotate str
+	{ 
+		/charcode exch def
+		( ) dup 0 charcode put clockwisePlaceChar
+	} forall
+	grestore 
+	end
+} def
+
+/counterClockwiseCircleText{ 
+	circtextdict begin
+	/radius exch def 
+	/centerangle exch def
+	/ptsize exch def 
+	/str exch def
+	/xradius radius ptsize 3 div sub def
+	gsave
+	centerangle str findhalfangle sub rotate
+	str
+	{ 
+		/charcode exch def
+		( ) dup 0 charcode put counterClockwisePlaceChar
+	} forall
+	grestore
+	end
+} def
+
+/circtextdict 16 dict def
+circtextdict begin
+/findhalfangle { 
+	stringwidth pop 2 div
+	2 xradius mul pi mul div 360 mul
+} def
+
+/clockwisePlaceChar { 
+	/char exch def
+	/halfangle char findhalfangle def
+	gsave
+	halfangle neg rotate
+	radius 0 translate
+	-90 rotate 
+	char stringwidth pop 2 div neg 0 moveto
+	char show
+	grestore
+	halfangle 2 mul neg rotate
+} def
+
+/counterClockwisePlaceChar { 
+	/char exch def
+	/halfangle char findhalfangle def
+	gsave
+	halfangle rotate
+	radius 0 translate
+	90 rotate
+	char stringwidth pop 2 div neg 0 moveto
+	char show
+	grestore
+	halfangle 2 mul rotate
+} def
+
+/pi 3.1415923 def
+end
+
+/Times-Bold findfont 40 scalefont setfont 
+306 448 translate 
+0 0 1 setrgbcolor fill
+(LENGUYEN'S GARDEN) 22 90 190 clockwiseCircleText 
+
+%0.8 0.8 scale
+/Times-Roman findfont 25 scalefont setfont
+306 448 translate
+0.7 0.3 1.0 setrgbcolor fill 
+(Phragmipedium & Paphiopedilum) 22 90 140 clockwiseCircleText
+
+%0.8 0.8 scale
+/Times-Roman findfont 30 scalefont setfont 
+306 448 translate
+0 0 1 setrgbcolor fill
+(WE GROW - YOU ENJOY) 15 270 215  counterClockwiseCircleText 
+
+
+showpage

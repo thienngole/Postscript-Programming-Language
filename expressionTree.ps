@@ -1,0 +1,199 @@
+%This program draw an expression tree
+
+%make the black background for the whole page.
+/pageBackGround { 
+	newpath
+	0 0 moveto
+	0 792 rlineto
+	612 0 rlineto
+	0 -792 rlineto
+	closepath
+	0.5 setlinewidth
+	0 0 0 setrgbcolor fill
+	stroke 
+} def
+pageBackGround
+
+%Do the black background
+10 50 moveto
+10 600 lineto
+602 600 lineto
+602 50 lineto
+10 50 lineto
+closepath
+0 0 0 setrgbcolor fill
+stroke
+
+%Display the texts
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+130 560 moveto
+(The expression tree of (a-b*c)/(d+e/f) ) 
+1 1 1 setrgbcolor show
+stroke
+
+50 65 moveto
+(This diagram is designed and drawn by ThienNgo Nguyen Le ) 
+1 1 1 setrgbcolor show
+stroke
+
+%Draw level 1
+266 528 20 0 360 arc closepath
+0 0.5 0 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+263 524 moveto
+(/) 0 0 0 setrgbcolor show
+stroke
+
+266 508 moveto
+113 416 lineto
+1 1 1 setrgbcolor
+stroke
+266 508 moveto
+419 416 lineto
+1 1 1 setrgbcolor
+stroke
+
+%Draw level 2
+113 396 20 0 360 arc closepath
+0 1 1 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+109 392 moveto
+(-) 0 0 0 setrgbcolor show
+stroke
+419 396 20 0 360 arc closepath
+0 1 1 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+414 392 moveto
+(+) 0 0 0 setrgbcolor show
+stroke
+
+113 376 moveto
+36.5 284 lineto
+1 1 1 setrgbcolor
+stroke
+113 376 moveto
+189.5 284 lineto
+1 1 1 setrgbcolor
+stroke
+
+419 376 moveto
+342 284 lineto
+1 1 1 setrgbcolor
+stroke
+419 376 moveto
+495.5 284 lineto
+1 1 1 setrgbcolor
+stroke
+
+%Drawing level 3
+36.5 264 20 0 360 arc closepath
+0.7 0.3 1.0 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+32.5 260 moveto
+(a) 0 0 0 setrgbcolor show
+stroke
+189.5 264 20 0 360 arc closepath
+0.7 0.3 1.0 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+185 258 moveto
+(*) 0 0 0 setrgbcolor show
+stroke
+342 264 20 0 360 arc closepath
+0.7 0.3 1.0 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+337 260 moveto
+(d) 0 0 0 setrgbcolor show
+stroke
+495.5 264 20 0 360 arc closepath
+0.7 0.3 1.0 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+491.5 260 moveto
+(/) 0 0 0 setrgbcolor show
+stroke
+
+189.5 244 moveto
+113 152 lineto
+1 1 1 setrgbcolor
+stroke
+189.5 244 moveto
+266 152 lineto
+1 1 1 setrgbcolor
+stroke
+
+495.5 244 moveto
+419 152 lineto
+1 1 1 setrgbcolor
+stroke
+495.5 244 moveto
+572 152 lineto
+1 1 1 setrgbcolor
+stroke
+
+%Draw level 4
+113 132 20 0 360 arc closepath
+0.7 0.3 0.0 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+109 128 moveto
+(b) 0 0 0 setrgbcolor show
+stroke
+266 132 20 0 360 arc closepath
+0.7 0.3 0.0 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+262 128 moveto
+(c) 0 0 0 setrgbcolor show
+stroke
+419 132 20 0 360 arc closepath
+0.7 0.3 0.0 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+415 128 moveto
+(e) 0 0 0 setrgbcolor show
+stroke
+572 132 20 0 360 arc closepath
+0.7 0.3 0.0 setrgbcolor fill
+stroke
+/Times-Roman findfont
+20 scalefont setfont
+newpath
+568 128 moveto
+(f) 0 0 0 setrgbcolor show
+stroke
+
+showpage
+
+
+
+
+
+

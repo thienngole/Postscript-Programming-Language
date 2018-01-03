@@ -1,0 +1,49 @@
+%This program displays a line of text 
+%and rotate the text coppy 45 degree each time
+
+%Do the black background
+0 0 moveto
+0 792 lineto
+612 792 lineto
+612 -792 lineto
+0 -792 lineto
+closepath
+0 0 0 setrgbcolor fill
+stroke
+
+%Print author name
+/Times-Roman findfont
+25 scalefont setfont
+newpath
+170 220 moveto
+(Credit to ThienNgo Nguyen Le ) 
+1 1 1 setrgbcolor show
+stroke
+
+
+
+%Begin showText function
+/showText { 
+	true charpath stroke 
+} def %End showText
+
+%Begin displayText function
+/displayText {
+	%Begin the for loop 
+	15 45 360 { gsave
+	rotate 
+	0 0 moveto
+	(o r c h i d s ) showText
+	grestore
+	} for %End for loop
+} def %End displayText
+
+%Call displayText
+306 448 translate % Move to middle of the page
+/Times-Roman findfont 45 scalefont setfont  %Set text font
+2.0 setlinewidth %Set the text width
+1 1 1 setrgbcolor %Set text color
+0.9 0.9 scale
+displayText
+
+showpage

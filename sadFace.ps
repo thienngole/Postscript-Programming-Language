@@ -1,0 +1,24 @@
+ /outputtext {
+       /data exch def
+       /rot exch def
+       /xfont exch def
+      /y1 exch def
+     /x1 exch def
+    /Times-Roman findfont
+    xfont scalefont
+    setfont
+    34 200 moveto
+    rot rotate
+    data show
+
+    rot neg rotate
+ } def
+
+
+
+% x y fontsize rotation (text) outputtext
+20 300 12 0 (text1) outputtext
+20 400 12 90 (text2) outputtext
+20 500 12 90 (text3) outputtext
+20 600 12 0 (text4) outputtext
+showpage

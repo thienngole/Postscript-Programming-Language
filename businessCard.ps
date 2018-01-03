@@ -1,0 +1,285 @@
+%This program designs a business card
+
+%make the black background for the whole page.
+/pageBackGround { 
+	newpath
+	0 0 moveto
+	0 792 rlineto
+	612 0 rlineto
+	0 -792 rlineto
+	closepath
+	0.5 setlinewidth
+	0 0 0 setrgbcolor fill
+	stroke 
+} def
+pageBackGround
+
+%Do card outline
+/cardOutline { 
+	newpath
+	54 54 moveto
+	0 288 rlineto
+	504 0 rlineto
+	0 -288 rlineto
+	closepath
+	2.0 setlinewidth
+	0.7 0.3 0.0 setrgbcolor 
+	stroke 
+} def
+%Call cardOutline to draw the outline
+cardOutline
+
+%Draw the left border
+/pagelength 320 def
+/doCircle {
+	xpos ypos radius 90 270 arc 
+	stroke
+} def
+
+/increase-y { 
+	ypos radius add
+	/ypos exch def 
+} def
+
+/leftvertical { 
+	/xpos exch def 
+	/radius exch def 
+	/ypos 78.5 def 
+	%begin loop
+	{ypos pagelength le 
+		{
+			doCircle increase-y
+		}
+
+		{
+			exit
+		} ifelse
+	}loop %end loop
+} def 
+0.7 0.3 0.0 setrgbcolor
+20 80 leftvertical
+
+%Draw the right border
+/pagelength 320 def
+/doCircle {
+	xpos ypos radius -90 90 arc stroke
+} def
+
+/increase-y { 
+	ypos radius add
+	/ypos exch def 
+} def
+
+/rightvertical { 
+	/xpos exch def 
+	/radius exch def 
+	/ypos 78.5 def 
+	%begin loop
+	{ypos pagelength le 
+		{
+			doCircle increase-y
+		}
+
+		{
+			exit
+		} ifelse
+	}loop %end loop
+} def 
+0.7 0.3 0.0 setrgbcolor
+20 533 rightvertical
+
+%Draw the bottom border
+/pagewidth 520 def
+/doCircle { 
+	xpos ypos radius 180 360 arc stroke
+} def
+
+/increase-x{ 
+	xpos radius add
+	/xpos exch def 
+} def
+
+/bottomhorizontal { 
+	/ypos exch def 
+	/radius exch def 
+	/xpos 97 def 
+	%begin loop
+	{xpos pagewidth le 
+		{
+			doCircle increase-x
+		}
+
+		{
+			exit
+		} ifelse
+	}loop %end loop
+} def 
+0.7 0.3 0.0 setrgbcolor
+20 80 bottomhorizontal
+
+%Draw the top border
+/pagewidth 520 def
+/doCircle { 
+	xpos ypos radius 0 180 arc stroke
+} def
+
+/increase-x { 
+	xpos radius add
+	/xpos exch def 
+} def
+
+/tophorizontal { 
+	/ypos exch def 
+	/radius exch def 
+	/xpos 97 def 
+	%begin loop
+	{xpos pagewidth le 
+		{
+			doCircle increase-x
+		}
+
+		{
+			exit
+		} ifelse
+	}loop %end loop
+} def 
+0.7 0.3 0.0 setrgbcolor
+20 317 tophorizontal
+
+%Draw the interior border
+/doInteriorBorder { 
+	80 80 moveto
+	0 236 rlineto 
+	452 0 rlineto 
+	0 -236 rlineto
+	closepath
+	2.5 setlinewidth 
+	stroke 
+} def
+0.7 0.3 0.0 setrgbcolor
+doInteriorBorder
+
+/doText { 
+270 180 moveto
+	/Times-BoldItalic findfont 20 scalefont setfont
+	(ThienNgo Nguyen Le) 1 1 1 setrgbcolor show
+	270 160 moveto
+	/Helvetica-Oblique findfont 10 scalefont setfont
+	(4658 S Abilene Cir Aurora CO 80015) 1 1 1 setrgbcolor show
+	270 140 moveto
+	/Helvetica-Oblique findfont 10 scalefont setfont
+	(Cell: 720 278 8396) 1 1 1 setrgbcolor show
+	270 120 moveto
+	/Helvetica-Oblique findfont 10 scalefont setfont
+	(Email: thienngonguyenle@gmail.com) 
+	1 1 1 setrgbcolor show 
+} def
+doText
+
+/Diamond#1 { 
+	newpath 
+	160 180 moveto 
+	40 -40 rlineto 
+	-40 -40 rlineto
+	-40 40 rlineto
+	closepath
+	0.7 0.3 1.0 setrgbcolor fill 
+} def 
+Diamond#1       
+
+/Diamond#2 { 
+	newpath 
+	160 220 moveto 
+	40 -40 rlineto 
+	-40 -40 rlineto
+	-40 40 rlineto
+	closepath
+	1.0 0.7 0.0 setrgbcolor fill 
+} def 
+Diamond#2
+
+/Diamond#3 { 
+	newpath 
+	160 260 moveto 
+	40 -40 rlineto 
+	-40 -40 rlineto
+	-40 40 rlineto
+	closepath
+	0.0 0.5 0.0 setrgbcolor fill 
+} def 
+Diamond#3
+
+/Diamond#4 { 
+	newpath 
+	160 300 moveto 
+	40 -40 rlineto 
+	-40 -40 rlineto
+	-40 40 rlineto
+	closepath
+	0 0 1 setrgbcolor fill 
+} def 
+Diamond#4
+
+/Diamond#5 { 
+	newpath 
+	200 300 moveto 
+	40 -40 rlineto 
+	-40 -40 rlineto
+	-40 40 rlineto
+	closepath
+	0.7 0.3 1.0 setrgbcolor fill 
+} def 
+Diamond#5
+
+/Diamond#6 { 
+	newpath 
+	240 300 moveto 
+	40 -40 rlineto 
+	-40 -40 rlineto
+	-40 40 rlineto
+	closepath
+	1.0 0.7 0.0 setrgbcolor fill 
+} def 
+Diamond#6
+
+/Diamond#7 { 
+	newpath 
+	280 300 moveto 
+	40 -40 rlineto 
+	-40 -40 rlineto
+	-40 40 rlineto
+	closepath
+	0.0 0.5 0.0 setrgbcolor fill 
+} def 
+Diamond#7
+
+%Drawing recursive circles 
+/pagewidth 500 def
+/doCircle { 
+	xpos ypos radius 0 360 arc stroke
+} def
+
+/increase-x { 
+	xpos radius add
+	/xpos exch def 
+} def
+
+/recursiveCircle { 
+	/ypos exch def 
+	/radius exch def 
+	/xpos 300 def 
+	{
+		xpos pagewidth le 
+		{
+			doCircle increase-x
+		}
+
+		{
+			exit
+		} ifelse
+	}loop 
+} def %end definition
+1 1 0 setrgbcolor
+20 260 recursiveCircle
+
+showpage

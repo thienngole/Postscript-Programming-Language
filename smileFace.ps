@@ -1,0 +1,42 @@
+%!PS-Adobe-1.0
+
+matrix currentmatrix /originmat exch def
+/umatrix {originmat matrix concatmatrix setmatrix} def
+[28.3465 0 0 28.3465 10.5 100.0] umatrix
+
+0 setgray
+0.2 setlinewidth
+
+%draw the head
+4 5 3 0 360 arc closepath
+gsave
+%set yellow color
+1 1 0 setrgbcolor fill
+grestore
+stroke
+
+%draw the mouth
+4 5 2 210 330 arc closepath
+gsave
+%set red color
+1 0 0 setrgbcolor fill
+grestore
+stroke
+
+%draw left eye
+3 6 0.8 0 360 arc closepath
+gsave
+%set blue color
+0 0 1 setrgbcolor fill
+grestore
+stroke
+
+%draw the right eye
+5 6 0.8 0 360 arc closepath
+gsave
+%set blue color
+0 0 1 setrgbcolor fill
+grestore
+stroke
+
+showpage
